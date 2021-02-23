@@ -1,48 +1,11 @@
-/* Importando Modulo Personalizado al Proyecto */
-/* var miModulo = require('./miModulo');
- *//* Utilidades Preinstaladas de NODEJS */
-/* var util = require('util');
+var http = require('http');
 
-var prueba = "10";
-console.log(util.isNumber(prueba));
-console.log(util.isString(prueba)); */
+var servidor = http.createServer(function(peticion, respuesta){
+	respuesta.writeHead(200, {'Content-type':'text/html'});
+	respuesta.write("Respuesta para la direccion" + peticion.url);
+	console.log("Petición Web");
+});
 
+servidor.listen(3000);
 
-/* Funcion básica
-function mostrarSaludo(){
-	let valor1 = "Hola";
-	let valor2 = " Mundo";
-
-	console.log(valor1 + valor2);
-}
-
-mostrarSaludo();
-
-Objecto Básico
-let curso = {
-	tema:"Nodejs",
-	leccion:"Datos compuestos"
-};
-
-console.log(curso.leccion);
-
-Objeto básico y Funciones Anonimas
-let calculo = {
-	duplicar: function(valor1){
-		return valor1 * 2;
-	},
-	divir: function(valo1){
-		return valo1/2;
-	}
-};
-
-console.log(calculo.duplicar(10), calculo.divir(10));
-
-console.log(process.platform);
-console.log(process.execPath);
-console.log(process.env);
-console.log(process.HOME); */
-
-/* miModulo.multiplicar(20); */
-
-console.log("Resultado= " + Math.floor(Math.random() * 200));
+console.log("Ejecuntando Servidor Nodejs");
