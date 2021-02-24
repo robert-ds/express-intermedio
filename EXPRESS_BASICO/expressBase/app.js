@@ -1,10 +1,12 @@
 var fs = require('fs');
 
-//var contenido = fs.readFileSync('./archivos/Intro.mp4', 'utf8');
+fs.readFile('./archivos/texto.txt1', 'utf8', (error, datos)=>{
+	
+	if(error){
+		console.log("Error de Lectura");
+		throw error;
+	}else{
+		console.log(datos);
+	}
 
-//Lectura Asincrona de Archivos - Callback
-var contenido = fs.readFile('./archivos/texto.txt', 'utf8', function(error, datos){
-	console.log(datos);
 });
-
-console.log(contenido);
