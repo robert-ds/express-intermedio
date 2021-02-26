@@ -1,11 +1,12 @@
 var fs = require('fs');
 
-//Copiar Archivo en una ruta
-fs.copyFile('./archivos/textoNew.txt', './archivos/archivoNew.txt', (error)=>{
+//Eliminar Archivos del Sistema
+fs.unlink('./archivos/archivo_incorrecto.txt', (error)=>{
+	
 	if(error){
-		console.log("Error al Copiar");
+		console.log("Error al Eliminar El Archivo");
 		throw error;
 	}else{
-		console.log("Archivo Copiado Exitosamente");
+		console.log("Archivo Eliminado Exitosamente");
 	}
 });
