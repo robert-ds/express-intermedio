@@ -1,23 +1,11 @@
 var fs = require('fs');
 
-//Inserta texto sin eliminar los anteriores
-fs.appendFile( './archivos/textoNew.txt', ' \nNuevos Datos 2', (error)=>{
-
+//Copiar Archivo en una ruta
+fs.copyFile('./archivos/textoNew.txt', './archivos/archivoNew.txt', (error)=>{
 	if(error){
-		console.log("Error al Escribir el Archivo")
+		console.log("Error al Copiar");
+		throw error;
 	}else{
-		console.log("Archivo Modificado Exitosamente");
+		console.log("Archivo Copiado Exitosamente");
 	}
-
-} );
-
-//Escribe Datos en el Archivo y lo Crea si no Existe
-/* fs.writeFile( './archivos/textoNew.txt', ' \nNuevos Datos 2', (error)=>{
-
-	if(error){
-		console.log("Error al Escribir el Archivo")
-	}else{
-		console.log("Archivo Modificado Exitosamente");
-	}
-
-} ); */
+});
