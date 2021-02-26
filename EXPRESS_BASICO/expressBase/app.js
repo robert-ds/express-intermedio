@@ -1,12 +1,16 @@
 var fs = require('fs');
 
-//Eliminar Archivos del Sistema
-fs.unlink('./archivos/archivo_incorrecto.txt', (error)=>{
-	
+//Procesos Asincronos Encadenados
+fs.copyFile('./archivos/textoNew.txt', './Otros_archivos/textoNew.txt', (error)=>{
+
 	if(error){
-		console.log("Error al Eliminar El Archivo");
-		throw error;
+		console.log("Ha Ocurrido un Error");
 	}else{
-		console.log("Archivo Eliminado Exitosamente");
+		
+		fs.writeFile('./archivos/confirmacion.txt', 'Archivo copiado Exitosamente', (error)=>{
+			console.log("Proceso Finalizado");
+		});
+
 	}
+
 });
