@@ -1,3 +1,5 @@
-var libro = require('./libros.json');
+var fs = require('fs');
 
-console.log(libro.Autor);
+fs.readFile('./libros.json', (error, datos) => {
+	console.log(JSON.parse(datos).Autor);
+});
